@@ -1,3 +1,14 @@
+# Insights:
+* cleanup.sql is a file that deletes all the objects we create in the our snowflake account in this course like database, schema, stored procedures, stages, etc.
+* load_tasty_bytes.sql is the main file we need to use with snow git execute @advanced_data_engineering_snowflake/branches/main/module-1/hamburg_weather/pipeline/data/load_tasty_bytes.sql -D "env='STAGING'" --database=COURSE_REPO --schema=PUBLIC 
+
+we can practically do the same for different datasets
+
+suppose we have load_forums_data.sql in our same repository (mind you this is all without doing a single commit to the forked repository)
+
+we would run:
+`snow git execute @advanced_data_engineering_snowflake/branches/main/forums-analyes/pipeline/data/load_forums_data.sql -D "env='STAGING'" --database=COURSE_REPO --schema=PUBLIC`
+
 ## Advanced Data Engineering with Snowflake
 
 #### How to use this repo throughout the course:
