@@ -5,6 +5,8 @@
 -- SELECT 
 --     COUNT(postal_code) 
 -- FROM forecast_day;
+SELECT CURRENT_ACCOUNT();
+SELECT CURRENT_ORGANIZATION_NAME() || '-' || CURRENT_ACCOUNT_NAME();
 
 USE ROLE ACCOUNTADMIN;
 
@@ -26,7 +28,7 @@ CREATE OR ALTER SCHEMA {{env}}_forums_analyses_db.intermediate;
 
 CREATE OR ALTER SCHEMA {{env}}_forums_analyses_db.marts;
 
-CREATE OR REPLACE WAREHOUSE fa_wh_xl
+CREATE OR REPLACE WAREHOUSE fa_wh_xs
     -- set this to scale warehouse vertically
     WAREHOUSE_SIZE = XSMALL
     WAREHOUSE_TYPE = STANDARD
@@ -80,6 +82,9 @@ CREATE OR REPLACE ICEBERG TABLE {{env}}_forums_analyses_db.raw.raw_youtube_video
     EXTERNAL_VOLUME = forums_analyses_ext_vol
     BASE_LOCATION = 'raw_youtube_videos'
     AUTO_REFRESH = TRUE;
+
+
+USE WAREHOUSE fa_wh_xs;
 
 /* staging */
 -- raw reddit posts comments
